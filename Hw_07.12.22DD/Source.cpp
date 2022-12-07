@@ -81,6 +81,23 @@ public:
 				c.erase(c.begin() + i);
 		}
 	}
+
+	void findName(string n) {
+		for (int i = 0; i < c.size(); i++)
+		{
+			if (c[i].getName() == n)
+				c[i].print();
+		}
+	}
+	void findPrice(int p) {
+		for (int i = 0; i < c.size(); i++)
+		{
+			if (c[i].getPrice() == p)
+				c[i].print();
+		}
+	}
+
+
 };
 
 
@@ -90,9 +107,9 @@ int menu() {
 	cout << "1 - print\n";
 	cout << "2 - add car\n";
 	cout << "3 - remove car\n";
-	cout << "4 - sort year\n";
-	cout << "5 - sort price\n";
-	cout << "6 - find name\n";
+	cout << "4 - find name\n";
+	cout << "5 - find price\n";
+	cout << "6 - sort year\n";
 	cout << "7 - sort price\n";
 	cout << string(20, '-') << "\n";
 	int choice;
@@ -110,6 +127,7 @@ int main() {
 	
 	salon s(3);
 	string n;
+	int p, y;
 
 	int choice;
 	do
@@ -130,6 +148,18 @@ int main() {
 			cout << "Enter name: ";
 			cin >> n;
 			s.del(n);
+			break;
+		case 4:
+			cout << "Enter name: ";
+			cin >> n;
+			s.findName(n);
+			system("pause");
+			break;
+		case 5:
+			cout << "Enter price: ";
+			cin >> p;
+			s.findPrice(p);
+			system("pause");
 			break;
 		default:
 			break;
