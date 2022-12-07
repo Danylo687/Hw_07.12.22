@@ -63,6 +63,24 @@ int main() {
 	
 
 
+	int choice;
+	do
+	{
+		system("cls");
+		choice = menu();
+
+		switch (choice)
+		{
+		case 1:
+			
+			system("pause");
+			break;
+		default:
+			break;
+		}
+
+	} while (choice != 0);
+
 
 	
 
