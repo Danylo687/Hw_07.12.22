@@ -31,10 +31,57 @@ public:
 		cout << "Price: " << price << "\n\n";
 	}
 
+	void set() {
+		cout << "Enter name: ";
+		cin >> name;
+		cout << "Enter year: ";
+		cin >> year;
+		cout << "Enter price: ";
+		cin >> price;
+	}
+	void set(string name, int year, int price) {
+		this->name = name;
+		this->year = year;
+		this->price = price;
+	}
 
+	string getName() { return name; }
+	int getYear() { return year; }
+	int getPrice() { return price; }
 };
 
 
+class salon {
+	vector<car> c;
+public:
+	salon() {};
+	salon(int number) {
+		car m("Not set", rand() % 10, rand() % 10);
+		for (int i = 0; i < number; i++) {
+			c.push_back(m); 
+			m.set("Not set", rand() % 10, rand() % 10);
+		}
+	};
+
+	void print() {
+		for (int i = 0; i < c.size(); i++)
+			c[i].print();
+	}
+
+	void add() {
+		car m;
+		m.set();
+		c.push_back(m);
+	}
+
+	void del(string n) {
+		for (int i = 0; i < c.size(); i++)
+		{
+			if (c[i].getName() == n) 
+				c.erase(c.begin() + i);
+		}
+	}
+};
 
 
 int menu() {
@@ -61,7 +108,8 @@ int main() {
 	srand(time(0));
 
 	
-
+	salon s(3);
+	string n;
 
 	int choice;
 	do
@@ -72,8 +120,16 @@ int main() {
 		switch (choice)
 		{
 		case 1:
-			
+			s.print();
 			system("pause");
+			break;
+		case 2:
+			s.add();
+			break;
+		case 3:
+			cout << "Enter name: ";
+			cin >> n;
+			s.del(n);
 			break;
 		default:
 			break;
