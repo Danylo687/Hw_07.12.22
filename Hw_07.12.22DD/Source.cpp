@@ -37,7 +37,23 @@ public:
 
 
 
-
+int menu() {
+	cout << string(20, '-') << "\n";
+	cout << "0 - exit\n";
+	cout << "1 - print\n";
+	cout << "2 - add car\n";
+	cout << "3 - remove car\n";
+	cout << "4 - sort year\n";
+	cout << "5 - sort price\n";
+	cout << "6 - find name\n";
+	cout << "7 - sort price\n";
+	cout << string(20, '-') << "\n";
+	int choice;
+	cout << "Enter choice: ";
+	cin >> choice;
+	cout << "\n";
+	return choice;
+}
 
 
 
